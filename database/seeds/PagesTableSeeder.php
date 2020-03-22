@@ -19,7 +19,7 @@ class PagesTableSeeder extends Seeder
 
         foreach ($pages as $page) {
             $newPage = new Page([
-                'slug' => $page['slug'] ?? SlugService::createSlug(Page::class, 'slug', $page['title']['ru'])
+                'slug' => $page['slug'] ?? SlugService::createSlug(Page::class, 'slug', $page['title']['en'])
             ]);
 
             foreach (config('app.locales') as $locale) {

@@ -25,7 +25,7 @@ class SectionsTableSeeder extends Seeder
                 'color' => $section['color'],
                 'description' => $section['description'],
                 'body' => $section['body'] ?? ['en' => null],
-                'slug' => SlugService::createSlug(Section::class, 'slug', $section['title']['ru'])
+                'slug' => SlugService::createSlug(Section::class, 'slug', $section['title']['en'])
             ]);
 
             $created->addMediaFromUrl(asset('images/sections/'.$section['image']))->toMediaCollection('cover');
@@ -38,7 +38,7 @@ class SectionsTableSeeder extends Seeder
                         'title' => $sub['title'],
                         'description' => $sub['description'],
                         'body' => $sub['body'] ?? null,
-                        'slug' => SlugService::createSlug(Section::class, 'slug', $sub['title']['ru'])
+                        'slug' => SlugService::createSlug(Section::class, 'slug', $sub['title']['en'])
                     ]);
 
                     $newSub->addMediaFromUrl(asset('images/sections/'.$sub['image']))->toMediaCollection('cover');

@@ -22,7 +22,7 @@ class PostsTableSeeder extends Seeder
 
             foreach ($items as $post) {
                 $category->posts()->create([
-                    'slug' => SlugService::createSlug(Post::class, 'slug', $post['title']['ru']),
+                    'slug' => SlugService::createSlug(Post::class, 'slug', $post['title']['en']),
                     'title' => $post['title'],
                     'body' => $post['body']
                 ]);

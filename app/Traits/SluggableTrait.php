@@ -33,6 +33,6 @@ trait SluggableTrait
 
     public function getSluggableTitleAttribute()
     {
-        return request('ru.title');
+        return request('en.title');
     }
 }
