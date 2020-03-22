@@ -221,6 +221,7 @@ class Navigation
                     'route' => 'users',
                     'icon' => 'i-users',
                 ]),
+                new Delimiter(),
                 new NavItem([
                     'name' => 'Статусы',
                     'route' => 'statuses',

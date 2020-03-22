@@ -17,19 +17,20 @@ class SetLocale
      */
     public function handle($request, Closure $next)
     {
-        if (app('router')->currentRouteNamed('admin.*')) {
-            $locale = 'ru';
-        } else {
-            if (session()->has('locale')) {
-                $locale = session()->get('locale', config('app.locale'));
-            } else {
-                $locale = substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2);
-
-                if ($locale !== 'ru' && $locale !== 'uk' && $locale !== 'en') {
-                    $locale = 'uk';
-                }
-            }
-        }
+//        if (app('router')->currentRouteNamed('admin.*')) {
+//            $locale = 'en';
+//        } else {
+//            if (session()->has('locale')) {
+//                $locale = session()->get('locale', config('app.locale'));
+//            } else {
+//                $locale = substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2);
+//
+//                if ($locale !== 'ru' && $locale !== 'uk' && $locale !== 'en') {
+//                    $locale = 'en';
+//                }
+//            }
+//        }
+        $locale = 'en';
 
         session()->put('locale', $locale);
         app()->setLocale($locale);
