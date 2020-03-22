@@ -1,0 +1,13 @@
+label {
+  @apply block text-left uppercase font-bold text-xs;
+}
+
+.form-control {
+  @apply border border-purple-900 px-4 py-3 w-full max-w-full rounded-none bg-transparent;
+
+  &--select {
+    appearance: none;
+    @apply pr-8;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI3Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiM0NDMzN2EiIGQ9Ik01LjM5MiA2Ljc0N0wuMjU2IDEuNDYxYS44OC44OCAwIDAgMSAwLTEuMjE3LjgxOS44MTkgMCAwIDEgMS4xODMgMGw0LjU0NCA0LjY3N0wxMC41MjguMjQ0YS44MTkuODE5IDAgMCAxIDEuMTgyIDAgLjg3OC44NzggMCAwIDEgMCAxLjIxN0w2LjU3NSA2Ljc0OGEuODIyLjgyMiAwIDAgMS0xLjE4My0uMDAxeiIvPjwvc3ZnPg==) 92% 50% no-repeat;
+  }
+}

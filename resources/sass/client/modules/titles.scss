@@ -1,0 +1,57 @@
+.title {
+  &-decoration {
+    @apply absolute;
+    top: 50%;
+    z-index: -1;
+    transform: translateY(-50%);
+    background-color: #cad2d4;
+  }
+
+  &--decorated {
+    position: relative;
+
+    span {
+      position: relative;
+
+      &::before, &::after {
+        @apply absolute font-serif italic;
+        top: 50%;
+        transform: translateY(-50%);
+        content: 'Feldman Family Museum';
+        white-space: nowrap;
+        font-size: 8px;
+        opacity: 0.1;
+        z-index: -1;
+      }
+
+      &::before {
+        right: 102%;
+      }
+
+      &::after {
+        left: 102%;
+      }
+    }
+  }
+
+  span {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    background-position: 50% 0;
+    transition: 0.5s;
+  }
+
+  &--filled {
+    span {
+      background-image: linear-gradient(transparent 1px, #fff 1px);
+      background-position: 0 0;
+    }
+  }
+
+  &--striped {
+    span {
+      background-image: linear-gradient(transparent calc(100% - 1px), #fff 1px);
+    }
+  }
+}

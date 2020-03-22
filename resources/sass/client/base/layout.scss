@@ -1,0 +1,26 @@
+*, *::before, *::after {
+  outline: none !important;
+}
+
+body {
+  @apply font-sans bg-grey-900 text-green-500;
+}
+
+a {
+  transition: 0.35s;
+  &:hover {
+    @apply text-yellow-500;
+  }
+}
+
+img {
+  display: inline-block;
+}
+
+.lozad {
+  @apply bg-center bg-cover;
+}
+
+.fotorama__thumb-border {
+  border-color: theme('colors.purple.900') !important;
+}

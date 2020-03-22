@@ -1,0 +1,49 @@
+.teaser {
+  &::before {
+    @apply absolute inset-x-0 bottom-0;
+    height: 40%;
+    content: '';
+    background: linear-gradient(to top, rgba(#1a202c, 0.8), rgba(#000, 0));
+    transition: 0.75s;
+  }
+
+  &__title {
+    transition: 0.5s;
+  }
+
+  &__link {
+    @apply flex flex-col justify-end h-full text-white relative z-10;
+  }
+
+  &__thumbnail {
+    @apply absolute inset-0 bg-cover bg-no-repeat bg-center;
+    z-index: -2;
+    transform: scale(1.1);
+    transition: 1s;
+  }
+
+  &__description {
+    @apply absolute inset-x-0 text-gray-300 font-serif italic leading-tight text-lg;
+    transform: translateY(400px);
+    transition: 0.5s;
+  }
+
+  &:hover {
+    &::before {
+      height: 90%;
+    }
+
+    .teaser__description {
+      transform: translateY(0);
+    }
+
+    .teaser__thumbnail {
+      transform: scale(1);
+    }
+
+    .title span {
+      color: theme('colors.green.500');
+      background-size: 100% 100%;
+    }
+  }
+}

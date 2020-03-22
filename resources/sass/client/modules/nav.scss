@@ -1,0 +1,81 @@
+.app-nav {
+  @apply fixed inset-0 bg-white text-black flex flex-col justify-center overflow-y-auto z-50;
+  display: none;
+
+  &__close {
+    @apply absolute;
+    right: 30px;
+    top: 20px;
+    z-index: 140;
+  }
+
+  @screen lg {
+    @apply static block bg-transparent text-white;
+    overflow: initial;
+
+    .app-nav__close {
+      display: none;
+    }
+  }
+}
+
+.nav {
+  @apply text-xl;
+
+  @screen lg {
+    @apply flex justify-center text-sm;
+  }
+
+  &-item {
+    @apply relative text-center z-0;
+
+    @screen lg {
+      @apply w-auto;
+    }
+
+    svg {
+      transition: 0.5s;
+    }
+
+    &.is-opened {
+      @apply z-10;
+      svg {
+        transform: scaleY(-1);
+      }
+    }
+
+    &:hover {
+      > a {
+        @apply text-yellow-500;
+      }
+
+      svg {
+        fill: theme('colors.yellow.500');
+      }
+    }
+  }
+
+  .submenu {
+    @apply relative w-full ;
+    @screen lg {
+      @apply absolute w-48 -ml-24 text-sm bg-white text-black;
+      top: 0;
+      left: 50%;
+      padding-top: 30px;
+      margin-top: -10px;
+      z-index: -1;
+    }
+
+    ul {
+      @apply p-3;
+    }
+  }
+}
+
+.toggle-nav {
+  @screen lg {
+    display: none;
+    position: relative;
+    z-index: 100;
+  }
+}

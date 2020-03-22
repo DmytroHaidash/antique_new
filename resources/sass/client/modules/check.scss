@@ -1,0 +1,8 @@
+.check {
+  @apply w-3 h-3 border border-white rounded-full absolute left-0 top-0;
+  margin-top: 0.3rem;
+
+  &.checked {
+    @apply bg-white;
+  }
+}

@@ -1,0 +1,32 @@
+.page {
+  &-header {
+    @apply relative;
+    height: 50vh;
+    min-height: 400px;
+    z-index: -1;
+
+    &::before {
+      @apply absolute inset-0 opacity-50;
+      content: '';
+      background-color: theme('colors.grey.900');
+    }
+
+    &::after {
+      @apply absolute inset-x-0 bottom-0;
+      height: 30%;
+      content: '';
+      background: linear-gradient(to top, theme('colors.grey.900'), transparent);
+    }
+  }
+
+  &-content {
+    @apply max-w-3xl mx-auto;
+
+    p {
+      @apply mb-4;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

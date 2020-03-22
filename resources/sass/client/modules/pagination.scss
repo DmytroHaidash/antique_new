@@ -1,0 +1,17 @@
+.pagination {
+  @apply flex justify-center font-bold;
+}
+
+.page-item {
+  .page-link {
+    @apply w-8 h-8 rounded-full text-center block;
+  }
+
+  &.active {
+    .page-link {
+      @apply italic font-serif font-normal text-yellow-500;
+      font-size: 6rem;
+      line-height: 1px;
+    }
+  }
+}

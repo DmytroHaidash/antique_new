@@ -1,0 +1,29 @@
+.button {
+  @apply px-6 py-3 inline-flex items-center uppercase tracking-widest text-xs font-medium border;
+
+  &--primary {
+    color: #fff;
+    background-color: #A32121;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    
+
+    &-outline {
+      background-color: transparent;
+      color: #333;
+      border: 1px solid #A32121;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #A32121;
+        color: #fff;
+      }
+    }
+
+    &:hover {
+      background-color: #560202;
+      color: #fff;
+    }
+  }
+}

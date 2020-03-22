@@ -1,0 +1,33 @@
+.app-header {
+	@apply p-3 flex items-center absolute inset-x-0 top-0 z-50 h-20 text-white text-sm;
+
+	&::before {
+		@apply absolute inset-x-0 top-0;
+		height: 120px;
+		content: '';
+		background: linear-gradient(to bottom, theme('colors.gray.900'), transparent);
+		opacity: 0.9;
+		z-index: -1;
+	}
+
+	@screen lg {
+		@apply px-5;
+	}
+
+	a {
+		color: inherit;
+
+		&:hover {
+			@apply text-yellow-500;
+		}
+	}
+}
+
+.logo {
+	&-decoration {
+		z-index: -1;
+		background-color: #cad2d4;
+		width: 400px;
+		height: 80px;
+	}
+}

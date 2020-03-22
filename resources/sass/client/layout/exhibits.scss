@@ -1,0 +1,44 @@
+.exhibits.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  grid-row-gap: 20px;
+  grid-auto-rows: 20px;
+
+  @screen md {
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  }
+
+  @screen lg {
+    grid-template-columns: repeat(auto-fill, minmax(33.33333%, 1fr));
+  }
+
+  @screen xxl {
+    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+  }
+}
+
+.exhibit-teaser {
+  position: relative;
+  z-index: 1;
+
+  img {
+    transition: 1s;
+  }
+
+  &:hover {
+    z-index: 10;
+
+    img {
+      transform: scale(1.05);
+    }
+
+    a {
+      color: #fff;
+    }
+
+    .title span {
+      background-size: 100% 100%;
+      color: #fff;
+    }
+  }
+}
