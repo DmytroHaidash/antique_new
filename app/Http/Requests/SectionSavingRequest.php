@@ -24,7 +24,7 @@ class SectionSavingRequest extends FormRequest
     public function rules()
     {
         return [
-            'ru.title' => 'required',
+            'en.title' => 'required',
             'cover' => 'image|max:3000'
         ];
     }

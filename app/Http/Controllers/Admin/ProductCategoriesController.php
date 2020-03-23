@@ -16,7 +16,7 @@ class ProductCategoriesController extends Controller
     public function index(): View
     {
         return \view('admin.product_categories.index', [
-            'categories' => ProductCategories::paginate(10),
+            'categories' => ProductCategories::onlyParents()->paginate(10),
         ]);
     }
 
@@ -25,7 +25,8 @@ class ProductCategoriesController extends Controller
      */
     public function create(): View
     {
-        return \view('admin.product_categories.create');
+        $categories = ProductCategories::onlyParents()->get();
+        return \view('admin.product_categories.create', compact('categories'));
     }
 
     /**
@@ -35,7 +36,7 @@ class ProductCategoriesController extends Controller
     public function store(Request $request): RedirectResponse
     {
         /** @var ProductCategories $product_category */
-        $product_category = new ProductCategories;
+        $product_category = new ProductCategories($request->only('parent_id'));
         $product_category->makeTranslation(['title'])->save();
 
         if ($request->hasFile('cover')) {
@@ -52,7 +53,8 @@ class ProductCategoriesController extends Controller
      */
     public function edit(ProductCategories $product_category): View
     {
-        return \view('admin.product_categories.edit', compact('product_category'));
+        $categories = ProductCategories::onlyParents()->where('id', '!=', $product_category->id)->get();
+        return \view('admin.product_categories.edit', compact('product_category', 'categories'));
     }
 
     /**
@@ -62,6 +64,7 @@ class ProductCategoriesController extends Controller
      */
     public function update(Request $request, ProductCategories $product_category): RedirectResponse
     {
+        $product_category->fill($request->only('parent_id'));
         $product_category->makeTranslation(['title'])->save();
         if ($request->hasFile('cover')) {
             $product_category->clearMediaCollection('cover');

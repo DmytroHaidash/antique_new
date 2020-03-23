@@ -24,7 +24,7 @@ class ExhibitSavingRequest extends FormRequest
     public function rules()
     {
         return [
-            'ru.title' => 'required',
+            'en.title' => 'required',
             'section_id' => 'required|array'
         ];
     }

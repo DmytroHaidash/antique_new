@@ -1,7 +1,9 @@
 <section class="slideshow hidden lg:block">
     <div class="slides slides--images">
         <div class="slide slide--current">
-            <figure class="slide__img" style="background-image: url({{ asset('images/background.jpg') }});"></figure>
+            <figure class="slide__img"
+                    style="background-image: url({{ $banner->hasMedia('cover')?
+                    $banner->getFirstMediaUrl('cover'):asset('images/background.jpg') }});"></figure>
             {{--<div class="slide__title">
                 <svg fill="#fff" class="slide__title-logo">
                     <use xlink:href="#logo"></use>

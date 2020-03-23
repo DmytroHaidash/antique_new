@@ -15,45 +15,50 @@
         </a>
         <ul class="nav list-reset -mx-4">
             @foreach(app('nav')->header() as $nav)
-                @if(!isset($nav->published)|| ($nav->published && ( $nav->published == 1)) )
-                    <li class="nav-item px-4">
+                <li class="nav-item px-4">
+                    <a href="{{ $nav->link ?? '#' }}" class="font-bold uppercase tracking-widest">
+                        {{ $nav->name }}
+                    </a>
+                    @if (isset($nav->submenu) && count($nav->submenu))
                         <a href="{{ $nav->link ?? '#' }}" class="font-bold uppercase tracking-widest">
-                            {{ $nav->name }}
+                            <svg width="12" height="11" class="fill-current ml-2 -mt-px inline-flex">
+                                <use xlink:href="#caret"></use>
+                            </svg>
                         </a>
 
-                        @if (isset($nav->children) && count($nav->children))
-                            <a href="{{ $nav->link ?? '#' }}" class="font-bold uppercase tracking-widest">
-                                <svg width="12" height="11" class="fill-current ml-2 -mt-px inline-flex">
-                                    <use xlink:href="#caret"></use>
-                                </svg>
-                            </a>
-
-                            <div class="submenu leading-tight" style="display: none">
-                                <ul class="list-reset">
-                                    @foreach($nav->children as $child)
-                                        @if (!$loop->first && $child->is_parent)
-                                            <li class="my-3">
-                                                <hr class="border-b border-white opacity-25">
-                                            </li>
-                                        @endif
-                                        <li class="my-1 {{ $child->is_parent ? 'font-bold' : '' }}">
-                                            <a href="{{ $child->link }}">
-                                                {{ $child->name }}
-                                            </a>
+                        <div class="submenu leading-tight" style="display: none">
+                            <ul class="list-reset">
+                                @foreach($nav->submenu as $item)
+                                    @if (!$loop->first)
+                                        <li class="my-3">
+                                            <hr class="border-b border-white opacity-25">
                                         </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                    </li>
-                @endif
+                                    @endif
+                                    <li class="my-1">
+                                        <a href="{{ $item->link }}" class="font-bold">{{ $item->name }}</a>
+
+                                        @if (isset($item->children) && count($item->children))
+                                            <ul class="list-unstyled">
+                                                @foreach($item->children as $child)
+                                                    <li class="my-1">
+                                                        <a href="{{ $child->link }}">{{ $child->name }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </li>
             @endforeach
         </ul>
     </nav>
 
     <div class="w-40 flex items-center ml-auto">
         <div class="language-switcher px-3 ml-auto">
-            {{ app()->getLocale() }}
+            {{--{{ app()->getLocale() }}
 
             @php
                 $locales = collect(config('app.locales'))->filter(function ($locale) {
@@ -67,7 +72,7 @@
                         <a href="{{ url('/'.$locale) }}">{{ $locale }}</a>
                     </li>
                 @endforeach
-            </ul>
+            </ul>--}}
         </div>
 
         <div class="search">

@@ -24,7 +24,7 @@ class ContactCreationRequest extends FormRequest
     public function rules()
     {
         return [
-            'ru.name' => 'required',
+            'en.name' => 'required',
             'cover' => 'image|max:2000'
         ];
     }

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 use App\Models\Page;
+use App\Models\ProductCategories;
 use Talanoff\ImpressionAdmin\Helpers\NavItem;
 
 class Delimiter
@@ -20,6 +21,7 @@ class Navigation
         $this->exhibits = app('sections')->filter(function ($section) {
             return $section->type == 'exhibit';
         });
+        $this->categories = ProductCategories::onlyParents()->get();
         $this->book = Page::where('slug', 'book')->first();
 //        $this->publications = app('sections')->filter(function($section) {
 //            return $section->type == 'publication';
@@ -29,13 +31,25 @@ class Navigation
     public function header()
     {
         return [
-            (object)[
-                'name' => trans('nav.catalog'),
-                'link' => route('client.catalog.index'),
-            ],
             (object) [
                 'name' => __('nav.about'),
                 'link' => url('/about')
+            ],
+            (object)[
+                'name' => __('nav.catalog'),
+                'link' => null,
+                'submenu' => $this->categories->map(function($section) {
+                    return (object)[
+                        'name' => $section->title,
+                        'link' => route('client.category', $section),
+                        'children' => $section->children->map(function ($child) use ($section) {
+                            return (object)[
+                                'name' => $child->title,
+                                'link' => route('client.catalog.index', ['category'=> $child->slug])
+                            ];
+                        })
+                    ];
+                })
             ],
             /*(object) [
                 'name' => __('nav.collection'),
@@ -111,7 +125,7 @@ class Navigation
             ],
         ];
 
-        $sections = $this->exhibits->filter(function ($section) {
+        /*$sections = $this->exhibits->filter(function ($section) {
             return !$section->parent_id;
         });
 
@@ -128,7 +142,7 @@ class Navigation
                     ];
                 })
             ]);
-        }
+        }*/
 
         return $items;
     }

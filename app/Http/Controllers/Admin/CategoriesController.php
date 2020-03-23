@@ -17,7 +17,7 @@ class CategoriesController extends Controller
      */
     public function index(): View
     {
-        $categories = Category::onlyParents()->withCount('posts')->orderBy('title->ru')->paginate(20);
+        $categories = Category::onlyParents()->paginate(20);
 
         return view('admin.categories.index', compact('categories'));
     }

@@ -57,6 +57,7 @@
                     @includeIf('partials.admin.meta', ['meta' => $page->meta()->first()])
                 </div>
 
+
                 <div class="col-lg-4">
                     <single-uploader name="cover"
                                      src="{{ optional($page->getFirstMedia('cover'))->getFullUrl() }}"></single-uploader>

@@ -24,7 +24,7 @@ class CitySavingRequest extends FormRequest
     public function rules()
     {
         return [
-            'ru.title' => 'required',
+            'en.title' => 'required',
         ];
     }
 }

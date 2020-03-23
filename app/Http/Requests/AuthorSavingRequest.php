@@ -24,7 +24,7 @@ class AuthorSavingRequest extends FormRequest
     public function rules()
     {
         return [
-            'ru.name' => 'required',
+            'en.name' => 'required',
             'lives_from' => 'required'
         ];
     }

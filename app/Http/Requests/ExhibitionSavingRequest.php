@@ -24,7 +24,7 @@ class ExhibitionSavingRequest extends FormRequest
     public function rules()
     {
         return [
-            'ru.title' => 'required',
+            'en.title' => 'required',
             'city_id' => 'required'
         ];
     }

@@ -24,7 +24,7 @@ class PostSavingRequest extends FormRequest
     public function rules()
     {
         return [
-            'ru.title' => 'required',
+            'en.title' => 'required',
             'category_id' => 'required|array',
             'cover' => 'image|max:2000'
         ];

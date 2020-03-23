@@ -60,6 +60,47 @@
                         </button>
                     </td>
                 </tr>
+                @if ($category->children->count())
+                    @foreach($category->children as $child)
+                        <tr>
+                            <td width="20">{{ $child->id }}</td>
+                            <td width="280">
+                                <span class="text-muted">&mdash;</span>
+                                <a href="{{ route('admin.product_categories.edit', $child) }}" class="underline">
+                                    {{ $child->translate('title') }}
+                                </a>
+                            </td>
+                            <td class="text-center small">{{ $child->products()->count() }}</td>
+                            <td width="150" class="small">
+                                <div class="d-flex text-center mb-2">
+                                    <form action="{{ route('admin.sort.product_categories.up', $child) }}"
+                                          method="post" class="col-6 px-0">
+                                        @csrf
+
+                                        <button class="btn btn-sm p-0">&uparrow;</button>
+                                    </form>
+
+                                    <form action="{{ route('admin.sort.product_categories.down', $child) }}"
+                                          method="post" class="col-6 px-0">
+                                        @csrf
+
+                                        <button class="btn btn-sm p-0">&downarrow;</button>
+                                    </form>
+                                </div>
+                            </td>
+                            <td width="100">
+                                <a href="{{ route('admin.product_categories.edit', $child) }}"
+                                   class="btn btn-warning btn-squire">
+                                    <i class="i-pencil"></i>
+                                </a>
+                                <button class="btn btn-danger btn-squire"
+                                        onclick="deleteItem('{{ route('admin.product_categories.destroy', $child) }}')">
+                                    <i class="i-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
             @empty
                 <tr>
                     <td colspan="5" class="text-center">
@@ -81,14 +122,14 @@
     </form>
 
     <script>
-      function deleteItem(route) {
-        const form = document.getElementById('delete');
-        const conf = confirm('Уверены?');
+        function deleteItem(route) {
+            const form = document.getElementById('delete');
+            const conf = confirm('Уверены?');
 
-        if (conf) {
-          form.action = route;
-          form.submit();
+            if (conf) {
+                form.action = route;
+                form.submit();
+            }
         }
-      }
     </script>
 @endpush

@@ -6,6 +6,7 @@ Route::group([
 ], function () {
     Route::get('/', 'HomeController@index')->name('index');
 
+    Route::get('category/{section}/{child_section?}', 'CatalogController@categories')->name('category');
     Route::group([
         'as' => 'catalog.',
     ], function () {

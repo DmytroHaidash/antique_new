@@ -32,7 +32,7 @@ class PagesController extends Controller
     }
 
     /**
-     * @param  PageSavingRequest  $request
+     * @param  PageSavingRequest $request
      * @return RedirectResponse
      */
     public function store(PageSavingRequest $request): RedirectResponse
@@ -45,7 +45,7 @@ class PagesController extends Controller
                 ->usingFileName(makeFileName($request->file('cover')))
                 ->toMediaCollection('cover');
         }
-        if($request->has('meta')){
+        if ($request->has('meta')) {
             foreach ($request->get('meta') as $key => $meta) {
                 $page->meta()->updateOrCreate([
                     'metable_id' => $page->id
@@ -59,7 +59,7 @@ class PagesController extends Controller
     }
 
     /**
-     * @param  Page  $page
+     * @param  Page $page
      * @return View
      */
     public function edit(Page $page): View
@@ -70,13 +70,12 @@ class PagesController extends Controller
     }
 
     /**
-     * @param  PageSavingRequest  $request
-     * @param  Page  $page
+     * @param  PageSavingRequest $request
+     * @param  Page $page
      * @return RedirectResponse
      */
     public function update(PageSavingRequest $request, Page $page): RedirectResponse
     {
-
         $page->fill($request->only('parent_id'));
         $page->makeTranslation(['title', 'body'])->save();
         $page->update(['published' => $request->has('published')]);
@@ -86,7 +85,7 @@ class PagesController extends Controller
                 ->usingFileName(makeFileName($request->file('cover')))
                 ->toMediaCollection('cover');
         }
-        if($request->has('meta')){
+        if ($request->has('meta')) {
             foreach ($request->get('meta') as $key => $meta) {
                 $page->meta()->updateOrCreate([
                     'metable_id' => $page->id
@@ -100,7 +99,7 @@ class PagesController extends Controller
     }
 
     /**
-     * @param  Page  $page
+     * @param  Page $page
      * @return RedirectResponse
      * @throws Exception
      */

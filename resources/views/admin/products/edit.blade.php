@@ -55,25 +55,32 @@
                     </div>
 
                     <div class="form-group">
-                        @if ($categories->count())
-                            <label>Категории</label>
-
-                            <div class="d-flex flex-wrap">
-                                @foreach($categories as $category)
-                                    <div class="border py-1 px-2 mr-3 mb-2 rounded">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input"
-                                                   id="category-{{ $category->id }}" name="categories[]"
-                                                   value="{{ $category->id }}" {{ $product->categories->pluck('id')->contains($category->id) ? 'checked' : '' }}>
-                                            <label class="custom-control-label"
-                                                   for="category-{{ $category->id }}">
-                                                {{ $category->translate('title') }}
-                                            </label>
-                                        </div>
+                        <label for="section">Категория</label>
+                        <ul class="list-unstyled">
+                            @foreach($categories as $section)
+                                <li>
+                                    <div class="custom-control custom-checkbox">
+                                        {{ $section->title }}
                                     </div>
-                                @endforeach
-                            </div>
-                        @endif
+                                </li>
+
+                                @if ($section->children->count())
+                                    @foreach($section->children as $child)
+                                        <li class="ml-3">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="category-{{$child->id}}" name="categories[]"
+                                                       {{ in_array($child->id, $product->categories->pluck('id')->toArray()) ? 'checked' : '' }}
+                                                       value="{{ $child->id }}">
+                                                <label class="custom-control-label" for="category-{{$child->id}}">
+                                                    {{ $child->title }}
+                                                </label>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                @endif
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
