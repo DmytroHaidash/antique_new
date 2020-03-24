@@ -60,13 +60,13 @@
                         {!! $product->body !!}
 
                         <div class="mt-4">
-                            <button class="button button--primary-outline modal-button"
+                            <button class="button button--primary modal-button"
                                     data-modal-opened="question">
                                 @lang('pages.product.question')
                             </button>
                         </div>
                         @if(Auth::user() && Auth::user()->hasRole('admin'))
-                            <a href="{{route('client.catalog.pdf', $product)}}"  download class="button button--primary-outline h4 px-4 py-3 mb-0 ml-3">
+                            <a href="{{route('client.catalog.pdf', $product)}}"  download class="button button--primary mt-2 h4 px-4 py-3 mb-0 ">
                                 Скачать PDF
                             </a>
                         @endif
