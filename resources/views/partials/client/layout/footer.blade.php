@@ -2,11 +2,11 @@
     <div class="container">
         <div class="logo-decoration inset-x-0 mx-auto">
             <a href="{{ url('/') }}" class="inline-flex mt-2">
-                <svg fill="#fff" width="160" height="60">
+                <svg  width="160" height="60">
                     <use xlink:href="#helmet"></use>
                 </svg>
                 <br>
-                <svg fill="#fff" width="200" height="60">
+                <svg  width="200" height="60">
                     <use xlink:href="#logo"></use>
                 </svg>
             </a>

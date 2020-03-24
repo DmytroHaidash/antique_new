@@ -30,4 +30,9 @@
 		width: 400px;
 		height: 80px;
 	}
+    &:hover {
+        svg{
+          fill: #daa520;
+        };
+    }
 }
