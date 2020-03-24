@@ -6,27 +6,27 @@
     @endif
     <section class="{{$page->hasMedia('cover')? '-mt-32' : 'mt-32'}} mb-12 container">
         <h1 class="text-5xl font-thin leading-none text-center font-heading">
-            <span>{{ $page->title }}</span>
+            <span>{{ $category->title ?? $page->title }}</span>
         </h1>
-        <div class="page-content mt-8">
+        {{--<div class="page-content mt-8">
             {!! $page->body !!}
-        </div>
+        </div>--}}
         <div class="mt-32 mb-12">
             <div class="container mx-0">
                 {{--@include('partials.client.catalog.search')--}}
                 {{--@include('partials.client.catalog.filters')--}}
                 <div class="flex flex-wrap justify-center mt-6">
-                    @each('partials.client.catalog.preview', $products, 'product', 'partials.client.layout.not-found')
+                    @each('partials.client.catalog.prev', $products, 'product', 'partials.client.layout.not-found')
                 </div>
 
                 @if ($products->total() > 1)
                     <div class="container mt-10">
                         {{ $products->appends(request()->except('page'))->links() }}
-                        <div class="ml-auto">
+                        {{--<div class="ml-auto">
                             <a href="{{ route('client.catalog.all') }}" class="btn btn-primary ml-3">
                                 @lang('pages.catalog.all')
                             </a>
-                        </div>
+                        </div>--}}
                     </div>
                 @endif
             </div>

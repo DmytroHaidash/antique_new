@@ -40,6 +40,7 @@ class CatalogController extends Controller
             'page' => $this->page,
             'search' => $request->input('search'),
             'search_category' => $request->input('category'),
+            'category' => ProductCategories::where('slug', $request->input('category'))->first(),
             'categories' => ProductCategories::get(),
             'products' => $products->paginate(24),
         ]);
