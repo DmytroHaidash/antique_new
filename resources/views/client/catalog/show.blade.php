@@ -66,7 +66,7 @@
                             </button>
                         </div>
                         @if(Auth::user() && Auth::user()->hasRole('admin'))
-                            <a href="{{route('app.catalog.pdf', $product)}}"  download class="button button--primary-outline h4 px-4 py-3 mb-0 ml-3">
+                            <a href="{{route('client.catalog.pdf', $product)}}"  download class="button button--primary-outline h4 px-4 py-3 mb-0 ml-3">
                                 Скачать PDF
                             </a>
                         @endif
