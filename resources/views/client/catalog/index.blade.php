@@ -13,7 +13,7 @@
         </div>
         <div class="mt-32 mb-12">
             <div class="container mx-0">
-                @include('partials.client.catalog.search')
+                {{--@include('partials.client.catalog.search')--}}
                 {{--@include('partials.client.catalog.filters')--}}
                 <div class="flex flex-wrap justify-center mt-6">
                     @each('partials.client.catalog.preview', $products, 'product', 'partials.client.layout.not-found')

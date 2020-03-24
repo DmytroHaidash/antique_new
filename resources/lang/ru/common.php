@@ -10,5 +10,5 @@ return [
     'footer' => [
         'info' => 'Информация',
     ],
-    'currency' => 'грн',
+    'currency' => 'евро',
 ];

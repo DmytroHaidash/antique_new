@@ -74,9 +74,20 @@
                 </div>
             </div>
         </div>
+        @if ($popular->count())
+        <div class="mt-32 mb-12">
+            <div class="container mx-0">
+                <div class="flex flex-wrap justify-center mt-6">
+                    @foreach($popular as $item)
+                        @include('partials.client.catalog.prev', ['product' => $item])
+                    @endforeach
+                </div>
+            </div>
+        </div>
+            @endif
     </section>
 
-    @if ($popular->count())
+    {{--@if ($popular->count())
         <section>
             <div class="flex flex-wrap justify-center">
                 <h5 class="mb-4">@lang('pages.product.popular')</h5>
@@ -87,7 +98,7 @@
                 @endforeach
             </div>
         </section>
-    @endif
+    @endif--}}
 
     @include('client.catalog.order-modal')
     @include('client.catalog.question-modal')
