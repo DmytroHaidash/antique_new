@@ -11,7 +11,7 @@
         {{--<div class="page-content mt-8">
             {!! $page->body !!}
         </div>--}}
-        <div class="mt-32 mb-12">
+        <div class="mt-12 mb-12">
             <div class="container mx-0">
                 {{--@include('partials.client.catalog.search')--}}
                 {{--@include('partials.client.catalog.filters')--}}
