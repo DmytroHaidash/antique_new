@@ -28,6 +28,7 @@ class PagesController extends Controller
             'user' => (object)$request->only('name', 'phone', 'email'),
             'message' => $request->input('message'),
         ];
+        $data['attach'] = $request['files'];
         Mail::send(new AskQuestion($data));
 
         return redirect()->route('client.index');
@@ -38,6 +39,7 @@ class PagesController extends Controller
         $data = [
             'user' => (object)$request->only('name', 'phone', 'email'),
         ];
+
         Mail::send(new Order($data));
         return redirect()->route('client.index');
     }

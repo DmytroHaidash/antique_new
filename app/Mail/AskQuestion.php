@@ -28,9 +28,20 @@ class AskQuestion extends Mailable
      */
     public function build()
     {
-        return $this
+        $email = $this
             ->to(config('app.admin_email'))
             ->subject('Вопрос  по кспертизе и оценке')
             ->view('mail.question');
+
+        if ($this->data->attach) {
+            foreach ($this->data->attach as $file) {
+                $email->attach($file->getRealPath(), [
+                    'as' => $file->getClientOriginalName(),
+                    'mime' => $file->getMimeType(),
+                ]);
+            }
+        }
+
+        return $email;
     }
 }

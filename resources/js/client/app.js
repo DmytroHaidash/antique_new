@@ -1,5 +1,12 @@
 import jQuery from 'jquery';
-
+import Vue from 'vue';
+import FileUploader from './components/FileUploader'
+new Vue({
+    el: '#app',
+    components: {
+        FileUploader
+    }
+});
 window.$ = window.jQuery = jQuery;
 
 const observer = require('lozad')();
