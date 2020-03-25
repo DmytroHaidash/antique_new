@@ -7,7 +7,7 @@
     </div>
 
     <h5 class="text-2xl text-center mb-5">@lang('pages.question.btn') </h5>
-    <form action="{{route('client.question')}}" method="post">
+    <form action="{{route('client.question')}}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-5">
@@ -45,6 +45,9 @@
             <label for="message" class="block font-bold uppercase text-xs mb-2">@lang('forms.message.question')</label>
             <textarea class="form-control border" id="message"
                       name="message">{{ old('message') }}</textarea>
+        </div>
+        <div class="mb-5">
+            <file-uploader></file-uploader>
         </div>
 
         <button class="button button--primary">@lang('forms.buttons.question')</button>

@@ -48,6 +48,7 @@ Route::group([
     ], function () {
         Route::get('/', 'ContactsController@index')->name('index');
     });
+    Route::post('subscribe', 'SubscribesController@subscribe')->name('subscribe');
 
     Route::get('search', 'SearchController@index')->name('search.index');
 

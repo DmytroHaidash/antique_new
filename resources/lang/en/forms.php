@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'first_name' => 'Your first name',
+    'last_name' => 'Your last name',
 	'name' => 'Your name',
 	'contact' => 'E-mail',
     'email' => 'E-mail',
@@ -14,5 +16,6 @@ return [
 	'buttons' => [
 		'buy' => 'Buy',
 		'question' => 'Ask a question',
+        'subscribe' => 'Subscribe to us',
 	],
 ];

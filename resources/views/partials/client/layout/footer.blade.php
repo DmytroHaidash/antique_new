@@ -33,6 +33,12 @@
                     @endif
                 </div>
             @endforeach
+                <div class="text-center mt-8">
+                    <a class="button button--primary subscribe-btn" data-subscribe-open="subscribe">
+                        @lang('forms.buttons.subscribe')
+                    </a>
+                    @include('partials.client.layout.subscribe')
+                </div>
         </div>
 
         <hr class="border-b border-white opacity-25 my-4">
@@ -42,3 +48,6 @@
         </div>
     </div>
 </footer>
+
+
+

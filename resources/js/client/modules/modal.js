@@ -18,6 +18,7 @@ $('.custom-modal-mask').on('click', function () {
   $('.custom-modal').toggle();
   $(this).toggle();
 })
+
 $('.modal-button').on('click', function (e) {
   e.preventDefault();
 
@@ -37,4 +38,23 @@ $('.custom-modal-2--close').on('click', function () {
 $('.custom-modal-2-mask').on('click', function () {
   $('.custom-modal-2').toggle();
   $(this).toggle();
+})
+
+$('.subscribe-btn').on('click', function (e) {
+    e.preventDefault();
+    let mod = $(this).data('subscribe-open');
+    $(`#${mod}`).toggle();
+    $('.subscribe-modal-mask').toggle();
+});
+
+$('.subscribe-modal--close').on('click', function () {
+
+    $('.subscribe-modal').toggle();
+    $('.subscribe-modal-mask').toggle();
+})
+
+
+$('.subscribe-modal-mask').on('click', function () {
+    $('.subscribe-modal').toggle();
+    $(this).toggle();
 })
