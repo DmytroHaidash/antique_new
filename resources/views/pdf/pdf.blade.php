@@ -1,3 +1,6 @@
+<style>
+    body { font-family: DejaVu Sans, sans-serif; }
+</style>
 <h1 style="text-align: center; font-size:64px">{{$product->translate('title')}}</h1>
 <p style="font-size: 50px">{!! $product->translate('description') !!}</p>
 {!! $product->translate('body') !!}

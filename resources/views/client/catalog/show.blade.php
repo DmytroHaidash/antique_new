@@ -7,7 +7,7 @@
     @endif
     <section class="{{$page->hasMedia('cover')? '-mt-32' : 'mt-32'}} mb-12">
         <div class="container">
-            <h1 class="text-5xl font-thin leading-none text-center">{{ $product->translate('title') }}</h1>
+            <h1 class="text-5xl font-thin leading-none text-center">{{ $product->translate('title') }} №{{$product->id}}</h1>
             <div class="flex flex-wrap -mx-8 mt-12">
                 <div class="w-1/2">
                     <a href="{{ $product->getBanner('uploads') }}">

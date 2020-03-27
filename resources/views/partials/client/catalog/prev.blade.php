@@ -5,7 +5,7 @@
     <a class="teaser__link p-6 lg:p-10" href="{{ route('client.catalog.show', $product) }}">
             <div class="teaser__title">
                 <h4 class="text-2xl title title--striped">
-                    <span>{{ $product->title }}</span>
+                    <span>{{ $product->title }} </span>
                 </h4>
             </div>
 

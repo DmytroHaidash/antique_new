@@ -3,7 +3,7 @@
         <div class="slide slide--current">
             <figure class="slide__img"
                     style="background-image: url({{ $banner->hasMedia('cover')?
-                    $banner->getFirstMediaUrl('cover'):asset('images/background.jpg') }});"></figure>
+                    $banner->getFirstMediaUrl('cover'):asset('images/background.jpg') }})"></figure>
             {{--<div class="slide__title">
                 <svg fill="#fff" class="slide__title-logo">
                     <use xlink:href="#logo"></use>
@@ -47,7 +47,8 @@
         </button>
     </nav>
 </section>
-<div class="mobile-top" style="background-image: url({{ asset('images/bg-mobile.jpg') }});">
+<div class="mobile-top" style="background-image: url({{ $banner->hasMedia('cover')?
+                    $banner->getFirstMediaUrl('cover'):asset('images/background.jpg') }})">
     <svg fill="#fff" class="mobile-top__logo">
         <use xlink:href="#logo"></use>
     </svg>
