@@ -29,14 +29,8 @@
                         <div class="submenu leading-tight" style="display: none">
                             <ul class="list-reset">
                                 @foreach($nav->submenu as $item)
-                                    @if (!$loop->first)
-                                        <li class="my-3">
-                                            <hr class="border-b border-white opacity-25">
-                                        </li>
-                                    @endif
                                     <li class="my-1">
                                         <a href="{{ $item->link }}" class="font-bold">{{ $item->name }}</a>
-
                                         @if (isset($item->children) && count($item->children))
                                             <ul class="list-unstyled">
                                                 @foreach($item->children as $child)

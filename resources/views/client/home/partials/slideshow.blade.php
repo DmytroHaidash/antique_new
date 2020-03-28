@@ -25,7 +25,7 @@
 
                 <h2 class="slide__title font-heading">{{ $section->title }}</h2>
                 <div class="slide__link mt-6">
-                    <a href="{{ route('client.catalog.index', ['category=' . $section->slug]) }}" class="button button--primary">
+                    <a href="{{ route('client.category', $section) }}" class="button button--primary">
                         {{ __('pages.product.catalog') }}
                     </a>
                 </div>
