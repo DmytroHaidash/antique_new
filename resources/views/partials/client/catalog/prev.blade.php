@@ -1,4 +1,4 @@
-<article class="teaser post-teaser w-1/2 lg:w-1/3 mx-2">
+<article class="teaser post-teaser w-1/2 lg:w-1/3">
     <figure class="lozad teaser__thumbnail"
             data-background-image="{{ $product->getBanner('uploads') }}"></figure>
 
