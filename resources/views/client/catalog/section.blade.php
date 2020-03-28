@@ -7,7 +7,7 @@
     <section class="-mt-24 mb-12">
         <div class="container text-center">
             <h1 class="text-5xl leading-none font-heading title--decorated">
-                <span class="title-decoration">{{ $section->title }}</span>
+                <span>{{ $section->title }}</span>
             </h1>
         </div>
     </section>
