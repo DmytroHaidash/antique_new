@@ -53,6 +53,12 @@
                             </div>
                         @endif
                     </div>
+                    <div class="custom-control custom-checkbox ml-3">
+                        <input type="checkbox" class="custom-control-input"
+                               id="published" name="publish_price"
+                            {{ $product->publish_price ? 'checked' : '' }}>
+                        <label class="custom-control-label" for="publish_price">Опубликовать цену</label>
+                    </div>
 
                     <div class="form-group">
                         <label for="section">Категория</label>
@@ -140,6 +146,28 @@
                             <label for="whom">Чье</label>
                             <input type="text" class="form-control" id="whom" name="accountings[whom]"
                                    value="{{ $product->accountings->whom ?? '' }}">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="buer">Покупатель</label>
+                            <select name="accountings[buer_id]" id="buer" class="form-control">
+                                <option value="">-------</option>
+                                @foreach($buers as $buer)
+                                    <option value="{{ $buer->id }}"
+                                        {{ $product->accountings ? ($supplier->id === $product->accountings->buer_id ? 'selected' : ''): '' }}>
+                                        {{ $buer->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="sell_price">Цена</label>
+                            <input type="number" min="1" step="1" class="form-control" id="sell_price" name="accountings[sell_price]"
+                                   value="{{ old('sell_price') ?? $product->accountings->sell_price }}">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="sell_date">Дата продажи</label>
+                            <input type="date" id="sell_date" class="form-control" name="accountings[sell_date]"
+                                   value="{{ $product->accountings->sell_date }}">
                         </div>
                     </div>
                     <accountings :message="{{$product->accountings->message ?? "['']"}}"

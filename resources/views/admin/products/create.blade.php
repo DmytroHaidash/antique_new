@@ -42,13 +42,20 @@
                 <div class="col-lg-3">
                     <div class="form-group{{ $errors->has('price') ? ' is-invalid' : '' }}">
                         <label for="price">Цена</label>
-                        <input type="number" min="0.01" step="0.01" class="form-control" id="price" name="price"
+                        <input type="number" min="1" step="1" class="form-control" id="price" name="price"
                                value="{{ old('price') }}" required>
                         @if($errors->has('price'))
                             <div class="mt-1 text-danger">
                                 {{ $errors->first('price') }}
                             </div>
                         @endif
+                    </div>
+                    <div class="form-group my-4">
+                        <div class="custom-control custom-checkbox ml-3">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="publish_price" name="publish_price" checked>
+                            <label class="custom-control-label" for="publish_price">Опубликовать цену</label>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -102,12 +109,12 @@
                 <h2 class="mt-4">Бухгалтерия</h2>
                 @if($statuses->count() > 0 && $suppliers->count() > 0)
                     <div class="row">
-                        <div class="form-group col-6">
+                        <div class="form-group col-sm-6">
                             <label for="date">Дата</label>
                             <input type="date" id="date" class="form-control" name="accountings[date]"
                                    value="{{date("Y-m-d")}}" required>
                         </div>
-                        <div class="form-group col-6">
+                        <div class="form-group col-sm-6">
                             <label for="status">Статус</label>
                             <select name="accountings[status_id]" id="status" class="form-control">
                                 <option value="">-------</option>
@@ -118,7 +125,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-6">
+                        <div class="form-group col-sm-6">
                             <label for="supplier">Поставщик</label>
                             <select name="accountings[supplier_id]" id="supplier" class="form-control">
                                 <option value="">-------</option>
@@ -129,16 +136,38 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-6">
+                        <div class="form-group col-sm-6">
                             <label for="whom">Чье</label>
                             <input type="text" class="form-control" id="whom" name="accountings[whom]">
                         </div>
+                        <div class="form-group col-sm-4">
+                            <label for="buer">Покупатель</label>
+                            <select name="accountings[buer_id]" id="buer" class="form-control">
+                                <option value="">-------</option>
+                                @foreach($buers as $buer)
+                                    <option value="{{ $buer->id }}">
+                                        {{ $buer->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="sell_price">Цена</label>
+                            <input type="number" min="1" step="1" class="form-control" id="sell_price" name="accountings[sell_price]">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="sell_date">Дата продажи</label>
+                            <input type="date" id="sell_date" class="form-control" name="accountings[sell_date]">
+                        </div>
+
                     </div>
+
                     <accountings :message="['']" :price="['0']"></accountings>
+
+
                     <div class="form-group col-12">
                         <label for="comment">Заметки</label>
                         <textarea name="accountings[comment]" class="form-control" id="comment"></textarea>
-
                     </div>
                     <multi-uploader name="accounting" class="mt-4"></multi-uploader>
                     <div class="d-flex align-items-center mt-4">
@@ -147,7 +176,8 @@
                 @else
                     <p>Для ведения бухгалтерии сначала создайте:
                         @if($suppliers->count() == 0)
-                            <a href="{{route('admin.suppliers.create')}}" class="btn btn-outline-primary">Поставщиков</a>
+                            <a href="{{route('admin.suppliers.create')}}"
+                               class="btn btn-outline-primary">Поставщиков</a>
                         @endif
                         @if($statuses->count() == 0)
                             <a href="{{route('admin.statuses.create')}}" class="btn btn-outline-primary">Cтатусы</a>

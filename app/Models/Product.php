@@ -33,7 +33,8 @@ class Product extends Model implements HasMedia, Sortable
         'is_published',
         'views_count',
         'in_stock',
-        'sort_order'
+        'sort_order',
+        'publish_price'
     ];
 
     public $translatable = [

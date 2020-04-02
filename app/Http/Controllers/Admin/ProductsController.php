@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Accounting;
+use App\Models\Buer;
 use App\Models\Product;
 use App\Models\ProductCategories;
 use App\Models\Status;
@@ -52,6 +53,7 @@ class ProductsController extends Controller
             'categories' => ProductCategories::onlyParents()->get(),
             'statuses' => Status::get(),
             'suppliers' => Supplier::get(),
+            'buers' => Buer::get(),
         ]);
     }
 
@@ -65,7 +67,8 @@ class ProductsController extends Controller
         $product = new Product([
             'price' => $request->input('price'),
             'is_published' => $request->has('is_published'),
-            'in_stock' => $request->has('in_stock')
+            'in_stock' => $request->has('in_stock'),
+            'publish_price' => $request->has('publish_price'),
         ]);
         $product->makeTranslation(['title', 'description', 'body'])->save();
         $product->categories()->attach($request->input('categories', []));
@@ -90,6 +93,9 @@ class ProductsController extends Controller
                 'message' => json_encode($request['accountings']['message']),
                 'amount' => $request['accountings']['amount'],
                 'comment' => $request['accountings']['comment'],
+                'buer_id' => $request['accountings']['buer_id'],
+                'sell_price' => $request['accountings']['sell_price'],
+                'sell_date' => $request['accountings']['sell_date']
             ]);
             if ($request->has('accounting')) {
                 foreach ($request->accounting as $media) {
@@ -115,6 +121,7 @@ class ProductsController extends Controller
             'categories' => ProductCategories::onlyParents()->get(),
             'statuses' => Status::get(),
             'suppliers' => Supplier::get(),
+            'buers' => Buer::get(),
         ]);
     }
 
@@ -128,7 +135,8 @@ class ProductsController extends Controller
         $product->fill([
             'price' => $request->input('price'),
             'is_published' => $request->has('is_published'),
-            'in_stock' => $request->has('in_stock')
+            'in_stock' => $request->has('in_stock'),
+            'publish_price' => $request->has('publish_price'),
         ]);
         $product->makeTranslation(['title', 'description', 'body'])->save();
         $product->categories()->sync($request->input('categories'));
@@ -165,6 +173,9 @@ class ProductsController extends Controller
                     'message' => json_encode($request['accountings']['message']),
                     'amount' => $request['accountings']['amount'],
                     'comment' => $request['accountings']['comment'],
+                    'buer_id' => $request['accountings']['buer_id'],
+                    'sell_price' => $request['accountings']['sell_price'],
+                    'sell_date' => $request['accountings']['sell_date']
                 ]);
             }
             if ($request->has('accounting')) {

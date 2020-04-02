@@ -29,9 +29,11 @@
                 <h4 class="text-2xl title title--striped">
                     <span>{{ $product->title }}</span>
                 </h4>
-                <div class="flex -mx-2 mt-3 font-sm">
-                    <div class="px-2 w-1/3">{{ $product->price }} @lang('common.currency')</div>
-                </div>
+                @if($product->publish_price)
+                    <div class="flex -mx-2 mt-3 font-sm">
+                        <div class="px-2 w-1/3">{{ $product->price }} @lang('common.currency')</div>
+                    </div>
+                @endif
             </div>
         </div>
     </a>

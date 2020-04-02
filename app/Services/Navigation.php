@@ -237,6 +237,11 @@ class Navigation
                 ]),
                 new Delimiter(),
                 new NavItem([
+                    'name' => 'Бухгалтерия',
+                    'route' => 'accounting',
+                    'icon' => 'i-diagram'
+                ]),
+                new NavItem([
                     'name' => 'Статусы',
                     'route' => 'statuses',
                     'icon' => 'i-versions'
@@ -247,9 +252,9 @@ class Navigation
                     'icon' => 'i-book'
                 ]),
                 new NavItem([
-                    'name' => 'Бухгалтерия',
-                    'route' => 'accounting',
-                    'icon' => 'i-diagram'
+                    'name' => 'Покупатели',
+                    'route' => 'buers',
+                    'icon' => 'i-pie-chart'
                 ]),
             ];
         }

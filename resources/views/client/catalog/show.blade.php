@@ -7,7 +7,8 @@
     @endif
     <section class="{{$page->hasMedia('cover')? '-mt-32' : 'mt-32'}} mb-12">
         <div class="container">
-            <h1 class="text-5xl font-thin leading-none text-center">{{ $product->translate('title') }} №{{$product->id}}</h1>
+            <h1 class="text-5xl font-thin leading-none text-center">{{ $product->translate('title') }}
+                №{{$product->id}}</h1>
             <div class="flex flex-wrap -mx-8 mt-12">
                 <div class="w-1/2">
                     <a href="{{ $product->getBanner('uploads') }}">
@@ -32,13 +33,13 @@
 
                 <div class="w-1/2">
                     <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-end mb-4 ml-4">
-                        <div>
+                        @if($product->publish_price)
                             <h4 class="price mt-4">
                                 <small class="text-muted">@lang('pages.product.price'):</small>
                                 {{ number_format($product->price, 0, ',', ' ') }}
                                 @lang('common.currency')
                             </h4>
-                        </div>
+                        @endif
 
                         <div class="ml-sm-auto text-right">
                             @if ($product->in_stock)
@@ -67,7 +68,8 @@
                         </div>
                         @if(Auth::user() && Auth::user()->hasRole('admin'))
                             <a href="{{route('client.catalog.pdf', $product)}}"
-                               class="button button--primary mt-2 h4 px-4 py-3 mb-0 ">
+                               class="button
+                               tton--primary mt-2 h4 px-4 py-3 mb-0 ">
                                 Скачать PDF
                             </a>
                         @endif
@@ -76,16 +78,14 @@
             </div>
         </div>
         @if ($popular->count())
-        <div class="mt-32 mb-12">
-            <div class="container mx-0">
+            <div class="container mt-10">
                 <div class="flex flex-wrap justify-center mt-6">
                     @foreach($popular as $item)
                         @include('partials.client.catalog.prev', ['product' => $item])
                     @endforeach
                 </div>
             </div>
-        </div>
-            @endif
+        @endif
     </section>
 
     {{--@if ($popular->count())

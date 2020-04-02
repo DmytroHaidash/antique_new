@@ -23,7 +23,10 @@ class Accounting extends Model implements HasMedia
         'supplier_id',
         'whom',
         'amount',
-        'comment'
+        'comment',
+        'buer_id',
+        'sell_price',
+        'sell_date'
     ];
 
     public function product():BelongsTo
@@ -38,6 +41,11 @@ class Accounting extends Model implements HasMedia
     public function supplier():BelongsTo
     {
         return $this->belongsTo(Supplier::class);
+    }
+
+    public function buer():BelongsTo
+    {
+        return $this->belongsTo(Buer::class);
     }
 
     /**

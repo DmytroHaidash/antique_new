@@ -34,6 +34,7 @@ Route::group([
 
     Route::resource('suppliers', 'SuppliersController')->except(['show'])->middleware('role:admin');
     Route::resource('statuses', 'StatusesController')->except(['show'])->middleware('role:admin');
+    Route::resource('buers', 'BuersController')->except(['show'])->middleware('role:admin');
 
     Route::get('accounting', 'AccountingsController@index')->name('accounting.index')->middleware('role:admin');
     Route::get('accounting/{product}', 'AccountingsController@pdf')->name('accounting.pdf')->middleware('role:admin');
