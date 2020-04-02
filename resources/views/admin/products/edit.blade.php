@@ -55,7 +55,7 @@
                     </div>
                     <div class="custom-control custom-checkbox ml-3">
                         <input type="checkbox" class="custom-control-input"
-                               id="published" name="publish_price"
+                               id="publish_price" name="publish_price"
                             {{ $product->publish_price ? 'checked' : '' }}>
                         <label class="custom-control-label" for="publish_price">Опубликовать цену</label>
                     </div>
