@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Accounting;
+use App\Models\Buer;
 use App\Models\Product;
 use App\Models\Status;
 use App\Models\Supplier;
@@ -22,6 +23,9 @@ class AccountingsController extends Controller
         if (\request()->filled('supplier')) {
             $accountings = $accountings->where('supplier_id', \request('supplier'));
         }
+        if(\request()->filled('buer')){
+            $accountings = $accountings->where('buer_id', \request('buer'));
+        }
         if (\request()->filled('q')) {
             $query = \request()->input('q');
             $accountings = $accountings->whereHas('product', function ($product) use ($query) {
@@ -37,6 +41,7 @@ class AccountingsController extends Controller
             'accountings' => $accountings->paginate(10),
             'statuses' => Status::get(),
             'suppliers' => Supplier::get(),
+            'buers' =>Buer::get(),
             'amountAcc' => array_sum($accountings->pluck('amount')->toArray()),
             'amountProduct' =>  array_sum(Product::pluck('price')->toArray()),
             'amountPublishedProduct' => array_sum(Product::where('is_published', 1)->pluck('price')->toArray()),
