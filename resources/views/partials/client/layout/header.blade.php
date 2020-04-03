@@ -31,14 +31,18 @@
                                 @foreach($nav->submenu as $item)
                                     <li class="mb-1">
                                         <a href="{{ $item->link }}" class="font-bold">{{ $item->name }}</a>
-                                        @if (isset($item->children) && count($item->children))
-                                            <ul class="list-unstyled">
+                                        <ul class="list-unstyled">
+                                            @if (isset($item->children) && count($item->children))
                                                 @foreach($item->children as $child)
-                                                    <li>
+                                                    <li class="mt-1">
                                                         <a href="{{ $child->link }}">{{ $child->name }}</a>
                                                     </li>
                                                 @endforeach
-                                            </ul>
+                                            @endif
+                                        </ul>
+                                        @if($loop->iteration == 2)
+                                            <a href="{{ route('client.catalog.index') }}"
+                                               class="font-bold">{{__('nav.all_items')}}</a>
                                         @endif
                                     </li>
                                 @endforeach

@@ -7,8 +7,7 @@
     @endif
     <section class="{{$page->hasMedia('cover')? '-mt-32' : 'mt-32'}} mb-12">
         <div class="container">
-            <h1 class="text-5xl font-thin leading-none text-center">{{ $product->translate('title') }}
-                №{{$product->id}}</h1>
+            <h1 class="text-5xl font-thin leading-none text-center">{{ $product->translate('title') }}</h1>
             <div class="flex flex-wrap -mx-8 mt-12">
                 <div class="w-1/2">
                     <a href="{{ $product->getBanner('uploads') }}">
@@ -47,6 +46,7 @@
                             @else
                                 <p class="text-danger">@lang('pages.product.out_of_stock')</p>
                             @endif
+                            <p>#{{$product->id}}</p>
                             <div class="ml-auto mt-4">
                                 <button class="button button--primary modal-btn"
                                         data-modal-open="buyModal">

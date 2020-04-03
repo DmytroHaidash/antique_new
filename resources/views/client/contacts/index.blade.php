@@ -14,7 +14,7 @@
                                  class="max-w-xs" alt="{{ $contact->name }}">
                         @endif
 
-                        <div class="{{ $contact->hasMedia('cover') ? 'px-8 py-6 mb-12 bg-purple-900 text-white w-3/4 absolute right-0 bottom-0' : '' }}">
+                        <div class="{{ $contact->hasMedia('cover') ? 'px-6 py-4 mb-4 -mr-12 bg-purple-900 text-white w-3/4 absolute right-0 bottom-0': '' }}">
                             <h2 class="text-2xl">{{ $contact->name }}</h2>
                             <p class="font-serif italic text-lg mb-4">{{ $contact->position }}</p>
 
