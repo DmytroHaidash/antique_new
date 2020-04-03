@@ -40,12 +40,14 @@
                                                 @endforeach
                                             @endif
                                         </ul>
-                                        @if($loop->iteration == 2)
-                                            <a href="{{ route('client.catalog.index') }}"
-                                               class="font-bold">{{__('nav.all_items')}}</a>
-                                        @endif
                                     </li>
                                 @endforeach
+                                @if($loop->iteration == 2)
+                                    <li class="mb-1">
+                                        <a href="{{ route('client.catalog.index') }}"
+                                           class="font-bold">{{__('nav.all_items')}}</a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     @endif
