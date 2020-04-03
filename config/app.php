@@ -27,7 +27,7 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
-    'admin_email' => env('ADMIN_EMAIL', 'far4ik1991@gmail.com'),
+    'admin_email' => env('ADMIN_EMAIL', 'vlad@antiquepark.eu'),
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
