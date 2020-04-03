@@ -27,7 +27,7 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
-    'admin_email' => env('ADMIN_EMAIL', 'r_kosarev@ukr.net'),
+    'admin_email' => env('ADMIN_EMAIL', 'far4ik1991@gmail.com'),
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode

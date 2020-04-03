@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'info@spheredigitech.com'),
-        'name' => env('MAIL_FROM_NAME', 'Historical arms of Caucasus'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@antiquepark.eu'),
+        'name' => env('MAIL_FROM_NAME', 'Antiquepark'),
     ],
 
     /*
