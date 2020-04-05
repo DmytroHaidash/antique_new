@@ -153,7 +153,8 @@
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="sell_price">Цена</label>
-                            <input type="number" min="1" step="1" class="form-control" id="sell_price" name="accountings[sell_price]">
+                            <input type="number" min="1" step="1" class="form-control" id="sell_price"
+                                   value="0" name="accountings[sell_price]">
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="sell_date">Дата продажи</label>

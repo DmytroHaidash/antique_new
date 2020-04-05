@@ -162,6 +162,9 @@ class ProductsController extends Controller
                     'message' => json_encode($request['accountings']['message']),
                     'amount' => $request['accountings']['amount'],
                     'comment' => $request['accountings']['comment'],
+                    'buer_id' => $request['accountings']['buer_id'],
+                    'sell_price' => $request['accountings']['sell_price'],
+                    'sell_date' => $request['accountings']['sell_date']
                 ]);
             }else{
                 $product->accountings()->create([

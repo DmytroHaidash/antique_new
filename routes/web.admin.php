@@ -37,6 +37,7 @@ Route::group([
     Route::resource('buers', 'BuersController')->except(['show'])->middleware('role:admin');
 
     Route::get('accounting', 'AccountingsController@index')->name('accounting.index')->middleware('role:admin');
+    Route::post('accounting/filter', 'AccountingsController@filter')->name('accounting.filter')->middleware('role:admin');
     Route::get('accounting/{product}', 'AccountingsController@pdf')->name('accounting.pdf')->middleware('role:admin');
 
     Route::group([
