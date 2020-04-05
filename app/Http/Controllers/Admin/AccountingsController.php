@@ -52,20 +52,22 @@ class AccountingsController extends Controller
     public function filter(Request $request)
     {
         $accountings = Accounting::whereNotNull('buer_id')->whereYear('sell_date', '=', $request->input('year'));
+        $request['year'] = intval($request->input('year'));
         if($request->has('month'))
         {
+            $request['month'] = intval($request->input('month'));
             $accountings = $accountings->whereMonth('sell_date', '=', $request->input('month'));
         }
-        $amountPublishedAcc = array_sum($accountings->whereHas('product', function (Builder $builder) {
-            $builder->where('is_published', 1);
-        })->pluck('amount')->toArray());
+
+
         return \view('admin.accountings.index', [
             'accountings' => $accountings->paginate(10),
             'statuses' => Status::get(),
             'suppliers' => Supplier::get(),
             'buers' =>Buer::get(),
             'amountAcc' => array_sum($accountings->pluck('amount')->toArray()),
-            'amountSell' => array_sum($accountings->pluck('sell_price')->toArray())
+            'amountSell' => array_sum($accountings->pluck('sell_price')->toArray()),
+            'request' =>$request,
         ]);
     }
 

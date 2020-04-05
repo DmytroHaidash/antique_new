@@ -50,14 +50,24 @@
             @csrf
             <div class="row">
                 <div class="col-sm-4 form-group">
-                    <label for="year">Фильтрация по времени:</label>
+                    <label for="year">Фильтрация по году:</label>
                     <input type="number" min="2019" max="{{ date('Y') }}" step="1"
-                           name="year" id="year" class="form-control" value="{{request('year') ??date('Y')}} " required/>
+                           name="year" id="year" class="form-control"
+                           @if(request()->route()->getName() == 'admin.accounting.filter')
+                           value="{{$request['year']}}"
+                           @endif
+                           required/>
+
                 </div>
                 <div class="col-sm-4 form-group">
                     <label for="month">Фильтрация по месяцу (1-12):</label>
                     <input type="number" min="1" max="12" step="1" name="month" id="month" class="form-control"
-                        {{request('month') ?  'value="' . request('month') .'"' : ''}}/>
+                           @if(request()->route()->getName() == 'admin.accounting.filter')
+                               @if($request['month'])
+                                value="{{$request['month']}}"
+                           @endif
+                        @endif
+                    />
                 </div>
                 <div class="col-auto mt-4">
                     <button class="btn btn-primary">Фильтровать</button>
@@ -120,8 +130,8 @@
                     <td width="100" class="small text-center">
                         @if(request()->route()->getName() == 'admin.accounting.filter')
                             {{$accounting->sell_price - $accounting->amount}}
-                            @else
-                        {{$accounting->amount}}
+                        @else
+                            {{$accounting->amount}}
                         @endif
                     </td>
                     <td width="100" class="text-right">
