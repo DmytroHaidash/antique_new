@@ -9,15 +9,20 @@
     </section>
 
     <section class="my-12">
-        <div class="exhibits {{ $exhibits->count() ? 'grid' : '' }}">
-            @each('partials.client.exhibits.teaser', $exhibits, 'exhibit', 'partials.client.layout.not-found')
+        <div class="mt-12 mb-12">
+            <div class="container mx-0">
+                <div class="flex flex-wrap justify-center mt-6">
+                    @each('partials.client.catalog.prev', $products, 'product', 'partials.client.layout.not-found')
+                </div>
+
+                @if ($products->total() > 1)
+                    <div class="container mt-10">
+                        {{ $products->appends(request()->except('page'))->links() }}
+                    </div>
+                @endif
+            </div>
         </div>
 
-        @if ($exhibits->total() > 1)
-            <div class="container mt-10">
-                {{ $exhibits->links() }}
-            </div>
-        @endif
     </section>
 
 @endsection

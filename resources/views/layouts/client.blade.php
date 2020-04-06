@@ -18,7 +18,7 @@
 
         gtag('config', 'UA-162605115-1');
     </script>
-    
+
     @stack('styles')
 </head>
 <body>

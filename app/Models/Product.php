@@ -23,6 +23,11 @@ class Product extends Model implements HasMedia, Sortable
 {
     use SluggableTrait, SortableTrait, HasTranslations, TranslatableTrait, MediaTrait, SoftDeletes;
 
+    public $translatable = [
+        'title',
+        'description',
+        'body',
+    ];
 
     protected $fillable = [
         'slug',
@@ -37,11 +42,7 @@ class Product extends Model implements HasMedia, Sortable
         'publish_price'
     ];
 
-    public $translatable = [
-        'title',
-        'description',
-        'body',
-    ];
+
     protected $casts = [
         'views_count' => 'integer',
     ];
