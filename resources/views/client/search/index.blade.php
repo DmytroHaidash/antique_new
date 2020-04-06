@@ -8,7 +8,7 @@
         </h1>
     </section>
 
-    <section class="my-12">
+    <section class="my-12 container">
         <div class="mt-12 mb-12">
             <div class="container mx-0">
                 <div class="flex flex-wrap justify-center mt-6">
