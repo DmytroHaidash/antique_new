@@ -41,10 +41,12 @@
                         @endif
 
                         <div class="ml-sm-auto text-right">
-                            @if ($product->in_stock)
+                            @if ($product->in_stock == 'stock')
                                 <p class="text-success">@lang('pages.product.in_stock')</p>
+                            @elseif($product->in_stock == 'reserved')
+                                <p class="text-danger">@lang('pages.product.reserved')</p>
                             @else
-                                <p class="text-danger">@lang('pages.product.out_of_stock')</p>
+                                <p class="text-danger">@lang('pages.product.sold')</p>
                             @endif
                             <p>#{{$product->id}}</p>
                             <div class="ml-auto mt-4">
@@ -68,8 +70,7 @@
                         </div>
                         @if(Auth::user() && Auth::user()->hasRole('admin'))
                             <a href="{{route('client.catalog.pdf', $product)}}"
-                               class="button
-                               tton--primary mt-2 h4 px-4 py-3 mb-0 ">
+                               class=" button button--primary-outline mt-4">
                                 Скачать PDF
                             </a>
                         @endif

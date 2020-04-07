@@ -71,6 +71,8 @@ return [
         'ordered' => 'Already ordered',
         'question' => 'Ask a question',
         'in_stock' => 'In stock',
+        'reserved' => 'Reserved',
+        'sold' => 'Sold',
         'out_of_stock' => 'Check availability'
     ]
 ];

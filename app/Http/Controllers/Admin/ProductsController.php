@@ -67,7 +67,7 @@ class ProductsController extends Controller
         $product = new Product([
             'price' => $request->input('price'),
             'is_published' => $request->has('is_published'),
-            'in_stock' => $request->has('in_stock'),
+            'in_stock' => $request->input('in_stock'),
             'publish_price' => $request->has('publish_price'),
         ]);
         $product->makeTranslation(['title', 'description', 'body'])->save();
@@ -135,7 +135,7 @@ class ProductsController extends Controller
         $product->fill([
             'price' => $request->input('price'),
             'is_published' => $request->has('is_published'),
-            'in_stock' => $request->has('in_stock'),
+            'in_stock' => $request->input('in_stock'),
             'publish_price' => $request->has('publish_price'),
         ]);
         $product->makeTranslation(['title', 'description', 'body'])->save();

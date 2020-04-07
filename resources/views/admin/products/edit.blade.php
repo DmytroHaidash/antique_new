@@ -90,12 +90,21 @@
                     </div>
                 </div>
             </div>
-
-            <div class="form-group my-4">
+            <div class="form-group d-flex my-4">
                 <div class="custom-control custom-checkbox ml-3">
-                    <input type="checkbox" class="custom-control-input"
-                           id="stock" name="in_stock" {{ $product->in_stock ? 'checked' : '' }}>
+                    <input type="radio" class="custom-control-input"
+                           id="stock" name="in_stock" value="stock" {{$product->in_stock == 'stock' ? 'checked' : ''}}>
                     <label class="custom-control-label" for="stock">Есть в наличии</label>
+                </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="radio" class="custom-control-input"
+                           id="reserved" name="in_stock" value="reserved" {{$product->in_stock == 'reserved' ? 'checked' : ''}}>
+                    <label class="custom-control-label" for="reserved">Зарезервирровано</label>
+                </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="radio" class="custom-control-input"
+                           id="sold" name="in_stock" value="sold" {{$product->in_stock == 'sold' ? 'checked' : ''}}>
+                    <label class="custom-control-label" for="sold">Продано</label>
                 </div>
             </div>
 
@@ -161,8 +170,8 @@
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="sell_price">Цена</label>
-                            <input type="number" min="1" step="1" class="form-control" id="sell_price" name="accountings[sell_price]"
-                                   value="{{ $product->accountings->sell_price ?? 0 }}">
+                            <input type="number" min="0" step="1" class="form-control" id="sell_price" name="accountings[sell_price]"
+                                   value="{{ $product->accountings->sell_price }}">
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="sell_date">Дата продажи</label>
