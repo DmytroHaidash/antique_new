@@ -171,12 +171,12 @@
                         <div class="form-group col-sm-4">
                             <label for="sell_price">Цена</label>
                             <input type="number" min="0" step="1" class="form-control" id="sell_price" name="accountings[sell_price]"
-                                   value="{{ $product->accountings->sell_price }}">
+                                   value="{{ $product->accountings->sell_price ?? '' }}">
                         </div>
                         <div class="form-group col-sm-4">
                             <label for="sell_date">Дата продажи</label>
                             <input type="date" id="sell_date" class="form-control" name="accountings[sell_date]"
-                                   value="{{ $product->accountings->sell_date ?? old('sell_date') }}">
+                                   value="{{ $product->accountings->sell_date ?? '' }}">
                         </div>
                     </div>
                     <accountings :message="{{$product->accountings->message ?? "['']"}}"
