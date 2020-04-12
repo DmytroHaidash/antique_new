@@ -1,7 +1,7 @@
 <header class="app-header">
     <div class="logo self-start h-full">
         <a href="{{ url('/') }}" class="block h-full">
-            <svg fill="#fff" width="240" height="60">
+            <svg fill="#fff" width="150" height="60">
                 <use xlink:href="#helmet"></use>
             </svg>
         </a>

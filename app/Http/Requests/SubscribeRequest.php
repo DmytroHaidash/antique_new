@@ -25,8 +25,8 @@ class SubscribeRequest extends FormRequest
     {
         return [
             'subscribe_first_name'=> 'required',
-            'subscribe_phone' => 'required_without:email',
-            'subscribe_email' => 'required_without:phone',
+            'subscribe_phone' => 'required_without:subscribe_email',
+            'subscribe_email' => 'required_without:subscribe_phone',
         ];
     }
 }

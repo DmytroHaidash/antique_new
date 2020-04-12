@@ -34,10 +34,9 @@
                 </div>
             @endforeach
                 <div class="text-center mt-8">
-                    <a class="button button--primary subscribe-btn" data-subscribe-open="subscribe">
+                    <a href="{{route('client.subscribe.index')}}" class="button button--primary" >
                         @lang('forms.buttons.subscribe')
                     </a>
-                    @include('partials.client.layout.subscribe')
                 </div>
         </div>
 

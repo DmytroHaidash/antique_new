@@ -9,6 +9,10 @@ use Mail;
 
 class SubscribesController extends Controller
 {
+    public function index(){
+        return \view('client.subscribe.index');
+    }
+
     public function subscribe(SubscribeRequest $request)
     {
         $data = $request->only('subscribe_first_name', 'subscribe_last_name', 'subscribe_phone', 'subscribe_email');
