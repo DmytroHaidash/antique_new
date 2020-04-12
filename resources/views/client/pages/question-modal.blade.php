@@ -47,7 +47,7 @@
                       name="message">{{ old('message') }}</textarea>
         </div>
         <div class="mb-5">
-            <file-uploader></file-uploader>
+            <file-uploader required="true"></file-uploader>
         </div>
 
         <button class="button button--primary">@lang('forms.buttons.question')</button>
