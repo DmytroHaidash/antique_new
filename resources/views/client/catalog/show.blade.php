@@ -16,11 +16,12 @@
                              data-background-image="{{ $product->getBanner() }}">
                     </a>
                     @if($product->hasMedia('uploads'))
+                        <h6 class="mb-4">@lang('pages.product.all_photos')</h6>
                         <div class="flex flex-wrap">
                             @foreach($product->getMedia('uploads')->slice(1) as $photo)
                                 @if($loop->first)
-                                    <h6 class="mb-4">@lang('pages.product.all_photos')</h6>
-                                    @endif
+
+                                @endif
                                 <div class=" w-1/2 lg:w-1/3">
                                     <a href="{{ $photo->getUrl('banner') }}">
                                         <img data-fancybox="gallery" data-src="{{ $photo->getFullUrl() }}"
