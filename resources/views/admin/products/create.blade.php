@@ -147,10 +147,10 @@
                             </select>
                         </div>
                         <div class="form-group col-sm-6">
-                            <label for="whom">Чье</label>
-                            <input type="text" class="form-control" id="whom" name="accountings[whom]">
+                            <label for="new-supplier">Новый поставщик</label>
+                            <input type="text" class="form-control" id="new-supplier" name="new-supplier">
                         </div>
-                        <div class="form-group col-sm-4">
+                        <div class="form-group col-sm-6">
                             <label for="buer">Покупатель</label>
                             <select name="accountings[buer_id]" id="buer" class="form-control">
                                 <option value="">-------</option>
@@ -161,6 +161,15 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="form-group col-sm-6">
+                            <label for="new-buer">Новый Покупатель</label>
+                            <input type="text" class="form-control" id="new-buer" name="new-buer">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="whom">Чье</label>
+                            <input type="text" class="form-control" id="whom" name="accountings[whom]">
+                        </div>
+
                         <div class="form-group col-sm-4">
                             <label for="sell_price">Цена</label>
                             <input type="number" min="1" step="1" class="form-control" id="sell_price"

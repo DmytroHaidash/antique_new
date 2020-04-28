@@ -84,16 +84,27 @@ class ProductsController extends Controller
             }
         }
         if ($request->has('accountings')) {
+            $supplier = $request['accountings']['supplier_id'];
+            $buer = $request['accountings']['buer_id'];
+            if($request['new-supplier']){
+                $supplier = Supplier::create(['title' => $request->input('new-supplier')]);
+                $supplier = $supplier->id;
+            }
+            if($request['new-buer']){
+                $buer = Buer::create(['title' => $request->input('new-buer')]);
+                $buer = $buer->id;
+            }
+
             $product->accountings()->create([
                 'date' => $request['accountings']['date'],
                 'status' => $request['accountings']['status_id'],
-                'supplier' => $request['accountings']['supplier_id'],
+                'supplier' => $supplier,
                 'whom' => $request['accountings']['whom'],
                 'price' => json_encode($request['accountings']['price']),
                 'message' => json_encode($request['accountings']['message']),
                 'amount' => $request['accountings']['amount'],
                 'comment' => $request['accountings']['comment'],
-                'buer_id' => $request['accountings']['buer_id'],
+                'buer_id' => $buer,
                 'sell_price' => $request['accountings']['sell_price'],
                 'sell_date' => $request['accountings']['sell_date']
             ]);
@@ -132,6 +143,7 @@ class ProductsController extends Controller
      */
     public function update(Request $request, Product $product): RedirectResponse
     {
+//        dd($request->has('new-supplier'));
         $product->fill([
             'price' => $request->input('price'),
             'is_published' => $request->has('is_published'),
@@ -152,17 +164,28 @@ class ProductsController extends Controller
         }
 
         if ($request->has('accountings')) {
+            $supplier = $request['accountings']['supplier_id'];
+            $buer = $request['accountings']['buer_id'];
+            if($request['new-supplier']){
+                dd($supplier);
+                $supplier = Supplier::create(['title' => $request->input('new-supplier')]);
+                $supplier = $supplier->id;
+            }
+            if($request['new-supplier']){
+                $buer = Buer::create(['title' => $request->input('new-buer')]);
+                $buer = $buer->id;
+            }
             if($product->accountings){
                 $product->accountings->update([
                     'date' => $request['accountings']['date'],
                     'status_id' => $request['accountings']['status_id'],
-                    'supplier_id' => $request['accountings']['supplier_id'],
+                    'supplier_id' => $supplier,
                     'whom' => $request['accountings']['whom'],
                     'price' => json_encode($request['accountings']['price']),
                     'message' => json_encode($request['accountings']['message']),
                     'amount' => $request['accountings']['amount'],
                     'comment' => $request['accountings']['comment'],
-                    'buer_id' => $request['accountings']['buer_id'],
+                    'buer_id' => $buer,
                     'sell_price' => $request['accountings']['sell_price'],
                     'sell_date' => $request['accountings']['sell_date']
                 ]);
@@ -170,13 +193,13 @@ class ProductsController extends Controller
                 $product->accountings()->create([
                     'date' => $request['accountings']['date'],
                     'status' => $request['accountings']['status_id'],
-                    'supplier' => $request['accountings']['supplier_id'],
+                    'supplier' => $supplier,
                     'whom' => $request['accountings']['whom'],
                     'price' => json_encode($request['accountings']['price']),
                     'message' => json_encode($request['accountings']['message']),
                     'amount' => $request['accountings']['amount'],
                     'comment' => $request['accountings']['comment'],
-                    'buer_id' => $request['accountings']['buer_id'],
+                    'buer_id' => $buer,
                     'sell_price' => $request['accountings']['sell_price'],
                     'sell_date' => $request['accountings']['sell_date']
                 ]);
