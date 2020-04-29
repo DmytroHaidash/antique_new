@@ -13,7 +13,7 @@ class SearchController extends Controller
     {
         $query = $request->input('search');
 
-        $products = Product::whereRaw('LOWER(title) LIKE ?', '%' . mb_strtolower($query) . '%')
+        $products = Product::where('is_published', 1)->whereRaw('LOWER(title) LIKE ?', '%' . mb_strtolower($query) . '%')
             ->orWhereRaw('LOWER(description) LIKE ?', '%' . mb_strtolower($query) . '%')
             ->orWhereRaw('LOWER(body) LIKE ?', '%' . mb_strtolower($query) . '%')
             ->paginate(12);
