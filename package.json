@@ -27,7 +27,7 @@
         "flickity": "^2.2.0",
         "flickity-as-nav-for": "^2.0.1",
         "imask": "^5.2.1",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "lozad": "^1.9.0",
         "popper.js": "^1.14.7",
         "tailwindcss": "^1.1.2",
