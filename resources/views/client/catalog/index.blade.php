@@ -19,16 +19,16 @@
                     @each('partials.client.catalog.prev', $products, 'product', 'partials.client.layout.not-found')
                 </div>
 
-                @if ($products->total() > 1)
+                {{--@if ($products->total() > 1)
                     <div class="container mt-10">
                         {{ $products->appends(request()->except('page'))->links() }}
-                        {{--<div class="ml-auto">
+                        --}}{{--<div class="ml-auto">
                             <a href="{{ route('client.catalog.all') }}" class="btn btn-primary ml-3">
                                 @lang('pages.catalog.all')
                             </a>
-                        </div>--}}
+                        </div>--}}{{--
                     </div>
-                @endif
+                @endif--}}
             </div>
         </div>
     </section>
