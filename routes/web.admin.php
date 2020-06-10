@@ -25,6 +25,7 @@ Route::group([
     Route::resource('publications', 'PublicationsController')->except('show');
 
     Route::resource('products', 'ProductsController')->except('show');
+    Route::post('publish/{product}', 'ProductsController@published')->name('products.publish');
     Route::resource('product_categories', 'ProductCategoriesController')->except('show');
     Route::resource('orders', 'OrdersController')->except('create', 'destroy');
 

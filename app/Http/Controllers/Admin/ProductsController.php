@@ -250,6 +250,19 @@ class ProductsController extends Controller
         return back();
     }
 
+    public function published(Product $product)
+    {
+        if($product->is_published == '1'){
+        $product->update([
+            'is_published' => 0
+        ]);
+        }else{
+            $product->update([
+                'is_published' => 1
+            ]);
+        }
+        return back();
+    }
     /**
      * @param  Request $request
      * @param  Product $product

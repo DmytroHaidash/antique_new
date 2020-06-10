@@ -45,6 +45,7 @@
                 <th>#</th>
                 <th>Название</th>
                 <th>Категория</th>
+                <th>Опубликовано</th>
                 <th class="text-center">Порядок</th>
                 <th></th>
             </tr>
@@ -67,6 +68,16 @@
                         @empty
                             ---
                         @endforelse
+                    </td>
+                    <td width="150" class="d-flex align-items-center">
+                        <div class="custom-control custom-checkbox ml-3">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="published-{{$product->id}}" name="is_published"
+                                {{ $product->is_published ? 'checked' : '' }}
+                                   onchange="publishItem('{{ route('admin.products.publish', $product) }}')">
+                            <label class="custom-control-label" for="published-{{$product->id}}"></label>
+                        </div>
+
                     </td>
                     <td width="150" class="small">
                         <div class="d-flex text-center mb-2">
@@ -115,16 +126,24 @@
         @csrf
         @method('delete')
     </form>
-
+    <form method="post" id="publish" style="display: none">
+        @csrf
+    </form>
     <script>
-      function deleteItem(route) {
-        const form = document.getElementById('delete');
-        const conf = confirm('Уверены?');
+        function deleteItem(route) {
+            const form = document.getElementById('delete');
+            const conf = confirm('Уверены?');
 
-        if (conf) {
-          form.action = route;
-          form.submit();
+            if (conf) {
+                form.action = route;
+                form.submit();
+            }
         }
-      }
+
+        function publishItem(route) {
+            const form = document.getElementById('publish');
+            form.action = route;
+            form.submit();
+        }
     </script>
 @endpush
