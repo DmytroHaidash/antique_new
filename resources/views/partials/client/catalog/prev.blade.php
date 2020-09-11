@@ -9,10 +9,17 @@
             </h4>
         </div>
 
-        @if($product->publish_price)
+        @if($product->publish_price && $product->in_stock == 'stock')
             <div class="flex -mx-2 font-sm">
-                <div class="px-2 w-1/3 text-sm">{{ $product->price }} @lang('common.currency')</div>
+                <div class="px-2 w-1/3">{{ $product->price }} @lang('common.currency')</div>
             </div>
+        @endif
+        @if ($product->in_stock == 'stock')
+            <p class="text-success">@lang('pages.product.in_stock')</p>
+        @elseif($product->in_stock == 'reserved')
+            <p class="text-danger">@lang('pages.product.reserved')</p>
+        @else
+            <p class="text-danger">@lang('pages.product.sold')</p>
         @endif
     </a>
 </article>

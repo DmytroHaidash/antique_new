@@ -29,10 +29,17 @@
                 <h4 class="text-2xl title title--striped">
                     <span>{{ $product->title }}</span>
                 </h4>
-                @if($product->publish_price)
+                @if($product->publish_price && $product->in_stock == 'stock')
                     <div class="flex -mx-2 mt-3 font-sm">
                         <div class="px-2 w-1/3">{{ $product->price }} @lang('common.currency')</div>
                     </div>
+                @endif
+                @if ($product->in_stock == 'stock')
+                    <p class="text-success">@lang('pages.product.in_stock')</p>
+                @elseif($product->in_stock == 'reserved')
+                    <p class="text-danger">@lang('pages.product.reserved')</p>
+                @else
+                    <p class="text-danger">@lang('pages.product.sold')</p>
                 @endif
             </div>
         </div>
