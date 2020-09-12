@@ -14,12 +14,10 @@
                 <div class="px-2 w-1/3">{{ $product->price }} @lang('common.currency')</div>
             </div>
         @endif
-        @if ($product->in_stock == 'stock')
-            <p class="text-success">@lang('pages.product.in_stock')</p>
+        @if ($product->in_stock == 'sold')
+            <p class="text-success">@lang('pages.product.sold')</p>
         @elseif($product->in_stock == 'reserved')
             <p class="text-danger">@lang('pages.product.reserved')</p>
-        @else
-            <p class="text-danger">@lang('pages.product.sold')</p>
         @endif
     </a>
 </article>

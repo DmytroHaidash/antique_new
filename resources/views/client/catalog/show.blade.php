@@ -35,7 +35,7 @@
 
                 <div class="lg:w-1/2 order-1 md:order-2">
                     <div class="d-flex flex-column flex-lg-row align-items-center align-items-lg-end mb-4 ml-4">
-                        @if($product->publish_price && $product->in_stock != 'sold')
+                        @if($product->publish_price && $product->in_stock == 'stock')
                             <h4 class="price mt-4">
                                 <small class="text-muted">@lang('pages.product.price'):</small>
                                 {{ number_format($product->price, 0, ',', ' ') }}
@@ -44,12 +44,10 @@
                         @endif
 
                         <div class="text-right">
-                            @if ($product->in_stock == 'stock')
-                                <p class="text-success">@lang('pages.product.in_stock')</p>
+                            @if ($product->in_stock == 'sold')
+                                <p class="text-success">@lang('pages.product.sold')</p>
                             @elseif($product->in_stock == 'reserved')
                                 <p class="text-danger">@lang('pages.product.reserved')</p>
-                            @else
-                                <p class="text-danger">@lang('pages.product.sold')</p>
                             @endif
                             <p>#{{$product->id}}</p>
                             <div class="ml-auto mt-4">
