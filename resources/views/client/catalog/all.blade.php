@@ -26,8 +26,8 @@
 
 @section('meta')
     <meta property="og:type" content="product.group">
-    @includeIf('partials.app.layout.meta', ['meta' => $page->meta()->first()])
+    @includeIf('partials.client.layout.meta', ['meta' => $page->meta()->first()])
     @foreach($products as $product)
-        @includeIf('partials.app.layout.meta', ['meta' => $product->meta()->first()])
+        @includeIf('partials.client.layout.meta', ['meta' => $product->meta()->first()])
     @endforeach
 @endsection

@@ -31,5 +31,5 @@
 
 @endsection
 @section('meta')
-    @includeIf('partials.app.layout.meta', ['meta' => $page->meta()->first()])
+    @includeIf('partials.client.layout.meta', ['meta' => $page->meta()->first()])
 @endsection

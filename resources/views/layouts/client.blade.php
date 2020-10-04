@@ -22,7 +22,7 @@
 
         gtag('config', 'UA-162605115-1');
     </script>
-
+    @yield('meta')
     @stack('styles')
 </head>
 <body>

@@ -39,8 +39,8 @@
 @endsection
 
 @section('meta')
-    @includeIf('partials.app.layout.meta', ['meta' => $section->meta()->first()])
+    @includeIf('partials.client.layout.meta', ['meta' => $section->meta()->first()])
     @foreach($exhibits as $exhibit)
-        @includeIf('partials.app.layout.meta', ['meta' => $exhibit->meta()->first()])
+        @includeIf('partials.client.layout.meta', ['meta' => $exhibit->meta()->first()])
     @endforeach
 @endsection

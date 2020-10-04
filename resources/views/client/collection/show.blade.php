@@ -52,5 +52,5 @@
 @endpush
 
 @section('meta')
-    @includeIf('partials.app.layout.meta', ['meta' => $exhibit->meta()->first()])
+    @includeIf('partials.client.layout.meta', ['meta' => $exhibit->meta()->first()])
 @endsection

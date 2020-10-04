@@ -37,6 +37,6 @@
 
 @section('meta')
     @foreach($posts as $post)
-        @includeIf('partials.app.layout.meta', ['meta' => $post->meta()->first()])
+        @includeIf('partials.client.layout.meta', ['meta' => $post->meta()->first()])
     @endforeach
 @endsection

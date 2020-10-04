@@ -12,7 +12,7 @@
             <div class="slide__desc" hidden></div>
             <div class="slide__link mt-6">
                 <a href="{{ url('/about')}}" class="button button--primary">
-                    {{ __('nav.about') }}
+                    <h1>{{ __('nav.about') }}</h1>
                 </a>
             </div>
         </div>

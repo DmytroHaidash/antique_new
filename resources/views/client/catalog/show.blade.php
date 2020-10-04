@@ -117,7 +117,7 @@
 @endpush
 
 @section('meta')
-    @includeIf('partials.app.layout.meta', ['meta' => $product->meta()->first()])
+    @includeIf('partials.client.layout.meta', ['meta' => $product->meta()->first()])
     <meta property="og:type" content="product.item">
     <meta property="og:image"
           content="{{ $product->hasMedia('uploads') ? $product->getFirstMedia('uploads')->getFullUrl() : '' }}">
