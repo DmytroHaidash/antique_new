@@ -8,11 +8,8 @@
     @includeWhen($posts->count(), 'partials.client.blog.section')
 
 @endsection
-{{--
 
 @section('meta')
-    @foreach($sections as $section)
-        @includeIf('partials.client.layout.meta', ['meta' => $section->meta()->first()])
-    @endforeach
+@includeIf('partials.client.layout.meta', ['meta' => $banner->meta()->first()])
+
 @endsection
---}}
