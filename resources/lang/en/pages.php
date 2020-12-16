@@ -73,6 +73,7 @@ return [
         'in_stock' => 'In stock',
         'reserved' => 'Reserved',
         'sold' => 'Sold',
-        'out_of_stock' => 'Check availability'
+        'out_of_stock' => 'Check availability',
+        'ask_price' => 'Price on request',
     ]
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Mail\AskProductPrice;
 use App\Mail\AskProductQuestion;
 use App\Models\Page;
 use App\Models\Product;
@@ -94,6 +95,14 @@ class CatalogController extends Controller
 
         return redirect()->back();
     }
+
+    public function price(Request $request, Product $product):RedirectResponse
+    {
+
+        Mail::send(new AskProductPrice($request->input('email'), $product));
+
+        return redirect()->back();
+     }
 
     public function categories(ProductCategories $section, ProductCategories $child_section = null):View
     {

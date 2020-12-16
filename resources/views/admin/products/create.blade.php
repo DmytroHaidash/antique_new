@@ -56,6 +56,11 @@
                                    id="publish_price" name="publish_price" checked>
                             <label class="custom-control-label" for="publish_price">Опубликовать цену</label>
                         </div>
+                        <div class="custom-control custom-checkbox ml-3">
+                            <input type="checkbox" class="custom-control-input"
+                                   id="ask_price" name="ask_price">
+                            <label class="custom-control-label" for="ask_price">Запросить цену</label>
+                        </div>
                     </div>
 
                     <div class="form-group">

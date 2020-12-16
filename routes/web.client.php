@@ -17,6 +17,7 @@ Route::group([
         Route::post('lot/{product}', 'OrderController')->name('buy');
         Route::post('lot/{product}/question', 'CatalogController@question')->name('question');
         Route::get('lot/pdf/{product}', 'CatalogController@pdf')->name('pdf');
+        Route::post('lot/{product}/price', 'CatalogController@price')->name('price');
     });
     Route::group([
         'as' => 'collection.',

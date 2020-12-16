@@ -35,7 +35,12 @@
 
                 <div class="lg:w-1/2 order-1 md:order-2">
                     <div class="d-flex flex-column flex-lg-row align-items-center align-items-lg-end mb-4 ml-4">
-                        @if($product->publish_price && $product->in_stock == 'stock')
+                        @if($product->ask_price)
+                            <button class="button button--primary modal-btn-3"
+                                    data-open-price="askPrice">
+                                @lang('pages.product.ask_price')
+                            </button>
+                        @elseif($product->publish_price && $product->in_stock == 'stock')
                             <h4 class="price mt-4">
                                 <small class="text-muted">@lang('pages.product.price'):</small>
                                 {{ number_format($product->price, 0, ',', ' ') }}
@@ -90,21 +95,10 @@
         @endif
     </section>
 
-    {{--@if ($popular->count())
-        <section>
-            <div class="flex flex-wrap justify-center">
-                <h5 class="mb-4">@lang('pages.product.popular')</h5>
-            </div>
-            <div class="exhibits grid">
-                @foreach($popular as $item)
-                    @include('partials.client.catalog.preview', ['product' => $item])
-                @endforeach
-            </div>
-        </section>
-    @endif--}}
 
     @include('client.catalog.order-modal')
     @include('client.catalog.question-modal')
+    @include('client.catalog.ask-price-modal')
 
 @endsection
 

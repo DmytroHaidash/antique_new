@@ -69,6 +69,7 @@ class ProductsController extends Controller
             'is_published' => $request->has('is_published'),
             'in_stock' => $request->input('in_stock'),
             'publish_price' => $request->has('publish_price'),
+            'ask_price' => $request->has('ask_price'),
         ]);
         $product->makeTranslation(['title', 'description', 'body'])->save();
         $product->categories()->attach($request->input('categories', []));
@@ -149,6 +150,7 @@ class ProductsController extends Controller
             'is_published' => $request->has('is_published'),
             'in_stock' => $request->input('in_stock'),
             'publish_price' => $request->has('publish_price'),
+            'ask_price' => $request->has('ask_price'),
         ]);
         $product->makeTranslation(['title', 'description', 'body'])->save();
         $product->categories()->sync($request->input('categories'));

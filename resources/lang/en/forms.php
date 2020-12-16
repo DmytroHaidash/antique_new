@@ -11,11 +11,13 @@ return [
         'order' => 'Message <small class="text-muted">(not necessary)</small>',
         'question' => 'Question?'
     ],
+    'ask_email' => 'Enter Your E-mail',
 
 
 	'buttons' => [
 		'buy' => 'Buy',
 		'question' => 'Ask a question',
         'subscribe' => 'Subscribe to us',
+        'ask-prise' => 'Send request'
 	],
 ];

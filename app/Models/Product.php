@@ -39,7 +39,8 @@ class Product extends Model implements HasMedia, Sortable
         'views_count',
         'in_stock',
         'sort_order',
-        'publish_price'
+        'publish_price',
+        'ask_price'
     ];
 
 
